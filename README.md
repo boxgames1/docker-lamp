@@ -1,11 +1,11 @@
-boxgames1/lamp
+boxgames/lamp
 ==========
 
 ![docker_logo](https://raw.githubusercontent.com/boxgames1/docker-lamp/master/docker_139x115.png)
 
 This Docker container implements a last generation LAMP stack with a set of popular PHP modules. Includes support for [Composer](https://getcomposer.org/), [Bower](http://bower.io/) and [npm](https://www.npmjs.com/) package managers and a Postfix service to allow sending emails through PHP [mail()](http://php.net/manual/en/function.mail.php) function.
 
-If you dont need support for MySQL/MariaDB, or your app runs on PHP 5.4, maybe [boxgames1/lap](https://hub.docker.com/r/boxgames1/lamp) suits your needs better.
+If you dont need support for MySQL/MariaDB, or your app runs on PHP 5.6, maybe [boxgames1/lap](https://hub.docker.com/r/boxgames/lamp) suits your needs better.
 
 Includes the following components:
 
@@ -13,7 +13,7 @@ Includes the following components:
  * Apache HTTP Server 2.4
  * MariaDB 10.0
  * Postfix 2.11
- * PHP 5
+ * PHP 5.6
  * PHP modules
  	* php-bz2
 	* php-cgi
@@ -57,13 +57,13 @@ Includes the following components:
 	* ftp
 	* curl
 
-Installation from [Docker registry hub](https://registry.hub.docker.com/u/boxgames1/lamp/).
+Installation from [Docker registry hub](https://registry.hub.docker.com/u/boxgames/lamp/).
 ----
 
 You can download the image using the following command:
 
 ```bash
-docker pull boxgames1/lamp
+docker pull boxgames/lamp
 ```
 
 Environment variables
@@ -133,19 +133,19 @@ Use cases
 #### Create a temporary container for testing purposes:
 
 ```
-	docker run -i -t --rm boxgames1/lamp bash
+	docker run -i -t --rm boxgames/lamp bash
 ```
 
 #### Create a temporary container to debug a web app:
 
 ```
-	docker run --rm -p 8080:80 -e LOG_STDOUT=true -e LOG_STDERR=true -e LOG_LEVEL=debug -v /my/data/directory:/var/www/html boxgames1/lamp
+	docker run --rm -p 8080:80 -e LOG_STDOUT=true -e LOG_STDERR=true -e LOG_LEVEL=debug -v /my/data/directory:/var/www/html boxgames/lamp
 ```
 
 #### Create a container linking to another [MySQL container](https://registry.hub.docker.com/_/mysql/):
 
 ```
-	docker run -d --link my-mysql-container:mysql -p 8080:80 -v /my/data/directory:/var/www/html -v /my/logs/directory:/var/log/httpd --name my-lamp-container boxgames1/lamp
+	docker run -d --link my-mysql-container:mysql -p 8080:80 -v /my/data/directory:/var/www/html -v /my/logs/directory:/var/log/httpd --name my-lamp-container boxgames/lamp
 ```
 
 #### Get inside a running container and open a MariaDB console:
